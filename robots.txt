@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noelialruiz.github.io/sitemap.xml
