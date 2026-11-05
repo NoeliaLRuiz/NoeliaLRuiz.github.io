@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noelia Leon Ruiz</title>
+  <meta name="description" content="Bachiller en Administración. Presupuesto público y ciencia de datos con Python y R aplicados a la gestión pública del Perú.">
+  <meta property="og:title" content="Noelia Leon Ruiz">
+  <meta property="og:description" content="Presupuesto público y ciencia de datos aplicados a la gestión pública del Perú.">
+  <meta property="og:image" content="https://noelialruiz.github.io/images/proyecto-criminalidad.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f3a68'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3ENL%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400..700;1,400&family=Source+Serif+4:opsz,wght@8..60,500..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --card: #ffffff;
+      --text: #1d2433;
+      --muted: #5b6474;
+      --line: #e4e0d8;
+      --accent: #1f3a68;
+      --accent-soft: #e6edf7;
+      --warm: #b8492f;
+      --img-bg: #f3f1ec;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #10141c;
+        --card: #171c26;
+        --text: #e8eaf0;
+        --muted: #a3abba;
+        --line: #2a3140;
+        --accent: #9bbcff;
+        --accent-soft: #1d2a42;
+        --warm: #f08a6c;
+        --img-bg: #1c2230;
+        color-scheme: dark;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 400 17px/1.6 "Public Sans", system-ui, sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    a:hover { text-decoration-thickness: 2px; }
+    img, video { display: block; max-width: 100%; }
+    h1, h2, h3 { font-family: "Source Serif 4", Georgia, serif; line-height: 1.2; margin: 0; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navegación */
+    nav {
+      position: sticky; top: 0; z-index: 5;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; gap: 20px; align-items: center; height: 52px; overflow-x: auto; scrollbar-width: none; }
+    nav .wrap::-webkit-scrollbar { display: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 15px; white-space: nowrap; }
+    nav a:hover { color: var(--text); }
+    nav .nombre { color: var(--text); font-weight: 600; margin-right: auto; }
+
+    /* Inicio */
+    header.inicio { padding: 48px 0 36px; }
+    .perfil { display: flex; gap: 32px; align-items: center; }
+    .perfil img { width: 148px; height: 148px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--card); box-shadow: 0 0 0 1px var(--line); }
+    .perfil h1 { font-size: 40px; font-weight: 700; }
+    .rol { margin: 6px 0 14px; color: var(--muted); font-size: 16px; letter-spacing: .02em; }
+    .bio { margin: 0 0 18px; max-width: 62ch; }
+    .enlaces { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
+    .boton {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 14px; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--card);
+      color: var(--text); text-decoration: none; font-size: 15px; font-weight: 500;
+    }
+    .boton:hover { border-color: var(--accent); color: var(--accent); }
+    .boton.principal { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+    .boton.principal:hover { color: var(--bg); opacity: .9; }
+    .boton svg { width: 16px; height: 16px; flex: none; }
+
+    /* Secciones */
+    section { padding: 36px 0; border-top: 1px solid var(--line); }
+    section > h2 { font-size: 28px; font-weight: 600; margin-bottom: 6px; }
+    .intro { color: var(--muted); margin: 0 0 24px; }
+
+    /* Tarjetas de proyecto */
+    .proyecto {
+      display: grid; grid-template-columns: 300px 1fr; gap: 26px;
+      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+      padding: 18px; margin-bottom: 20px;
+    }
+    .proyecto .imagen { border-radius: 9px; overflow: hidden; background: var(--img-bg); aspect-ratio: 4 / 3; align-self: start; }
+    .proyecto .imagen img { width: 100%; height: 100%; object-fit: cover; }
+    .grafico { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 20px; color: var(--text); text-decoration: none; }
+    .proyecto .imagen.grafico { aspect-ratio: auto; min-height: 210px; align-self: stretch; }
+    .g-titulo { font-weight: 600; font-size: 15px; line-height: 1.35; }
+    .g-fila { display: grid; gap: 4px; }
+    .g-nombre { font-size: 14px; color: var(--muted); }
+    .g-barra { display: block; background: var(--line); border-radius: 6px; }
+    .g-valor { display: block; border-radius: 6px; padding: 6px 10px; font-size: 14px; font-weight: 700; color: #fff; }
+    .g-valor.si { background: #2a6fc9; }
+    .g-valor.no { background: #c9572f; }
+    .g-fuente { font-size: 12.5px; color: var(--muted); }
+    .etiqueta { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--warm); margin: 2px 0 6px; }
+    .proyecto h3 { font-size: 23px; font-weight: 600; margin-bottom: 12px; }
+    .proyecto dl { margin: 0 0 14px; }
+    .proyecto dt { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+    .proyecto dd { margin: 0 0 10px; }
+    .proyecto .enlaces .boton { font-size: 14px; padding: 5px 12px; }
+    .herramientas { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+
+    .otros { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .otros li { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; background: var(--card); }
+    .otros h3 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+    .otros p { margin: 0 0 10px; font-size: 15.5px; }
+    .otros .links { font-size: 15px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Video */
+    .video { display: grid; grid-template-columns: 260px 1fr; gap: 28px; align-items: start; }
+    .video video { width: 100%; aspect-ratio: 9 / 16; border-radius: 12px; background: #000; }
+    .video p { margin: 0 0 12px; }
+
+    /* Experiencia y formación */
+    .linea { list-style: none; padding: 0; margin: 0; }
+    .linea li { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 14px 0; border-bottom: 1px dashed var(--line); }
+    .linea li:last-child { border-bottom: 0; }
+    .fecha { color: var(--muted); font-size: 15px; padding-top: 2px; }
+    .cargo { font-weight: 600; }
+    .lugar { color: var(--muted); }
+    .linea p { margin: 4px 0 0; font-size: 15.5px; }
+
+    .grupos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 36px; }
+    .grupos h3 { font-family: "Public Sans", system-ui, sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); margin: 14px 0 6px; }
+    .grupos ul { list-style: none; padding: 0; margin: 0; }
+    .grupos li { padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; line-height: 1.45; }
+    .grupos li span { display: block; color: var(--muted); font-size: 14px; }
+    .nota { color: var(--muted); font-size: 14.5px; margin-top: 18px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+    .chips li { background: var(--accent-soft); color: var(--text); border-radius: 999px; padding: 4px 12px; font-size: 15px; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14.5px; }
+    footer p { margin: 0 0 6px; }
+
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      nav .nombre { display: none; }
+      header.inicio { padding: 32px 0 28px; }
+      .perfil { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .perfil img { width: 112px; height: 112px; }
+      .perfil h1 { font-size: 32px; }
+      section > h2 { font-size: 25px; }
+      .proyecto { grid-template-columns: 1fr; gap: 16px; padding: 14px; }
+      .proyecto .imagen { aspect-ratio: 16 / 10; }
+      .proyecto h3 { font-size: 21px; }
+      .otros, .grupos { grid-template-columns: 1fr; }
+      .video { grid-template-columns: 1fr; }
+      .video video { max-width: 280px; }
+      .linea li { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav aria-label="Secciones">
+  <div class="wrap">
+    <a class="nombre" href="#inicio">Noelia Leon Ruiz</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#video">Video</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#formacion">Formación</a>
+    <a href="#certificados">Certificados</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <header class="inicio" id="inicio">
+    <div class="perfil">
+      <img src="images/foto.jpg" alt="Foto de Noelia Leon Ruiz">
+      <div>
+        <h1>Noelia Leon Ruiz</h1>
+        <p class="rol">Especialista en Presupuesto · Bachiller en Administración · Ciencia de datos</p>
+        <p class="bio">Soy bachiller en Administración por la Universidad Nacional Federico Villarreal y especialista en presupuesto en el Área de Planificación y Presupuesto de la Escuela de Educación Superior Pedagógica Pública Monterrico. Estudio ciencia de datos en la PUCP y uso Python y R para responder preguntas de gestión pública con datos abiertos del Perú.</p>
+        <ul class="enlaces">
+          <li><a class="boton principal" href="files/cv-noelia-leon-ruiz.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M12 12v6m-3-3 3 3 3-3"/></svg>
+            CV en PDF</a></li>
+          <li><a class="boton" href="https://github.com/NoeliaLRuiz">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            GitHub</a></li>
+          <li><a class="boton" href="https://www.linkedin.com/in/noeliafernandale%C3%B3nruiz/">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn</a></li>
+          <li><a class="boton" href="mailto:nfernandaleonruiz@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            nfernandaleonruiz@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <p class="intro">Tres proyectos con datos públicos del Perú, del más reciente al más antiguo. Cada uno tiene su código abierto en GitHub.</p>
+
+    <article class="proyecto">
+      <a class="imagen" href="https://noelialruiz.github.io/Python_intermedio_2026/tarea_3/web/">
+        <img src="images/proyecto-criminalidad.jpg" alt="Dashboard con indicadores de criminalidad, mapa del Perú por regiones y ranking de homicidios" style="object-position: top" loading="lazy">
+      </a>
+      <div>
+        <p class="etiqueta">Dashboard y reel · Noviembre 2026</p>
+        <h3>Menos víctimas, más violencia: la criminalidad en las 26 regiones del Perú</h3>
+        <dl>
+          <dt>Pregunta</dt>
+          <dd>¿Qué regiones concentran los delitos más graves y cómo cambiaron entre 2010 y 2025?</dd>
+          <dt>Resultado</dt>
+          <dd>Las víctimas de algún delito bajaron de <strong>40,0 % (2011) a 25,3 % (2025)</strong>, pero las denuncias de extorsión se multiplicaron por <strong>8,5</strong>: de 3223 en 2018 a 27 292 en 2025.</dd>
+        </dl>
+        <ul class="enlaces">
+          <li><a class="boton" href="https://noelialruiz.github.io/Python_intermedio_2026/tarea_3/web/">Dashboard</a></li>
+          <li><a class="boton" href="#video">Reel</a></li>
+          <li><a class="boton" href="https://github.com/NoeliaLRuiz/Python_intermedio_2026/tree/main/tarea_3">Código</a></li>
+        </ul>
+        <p class="herramientas">Python · pandas · Plotly · datos abiertos del Mininter</p>
+      </div>
+    </article>
+
+    <article class="proyecto">
+      <a class="imagen grafico" href="https://github.com/NoeliaLRuiz/mcp-consulta-amigable/blob/main/informe.md" aria-label="Gráfico: con el MCP, Claude acertó las 10 cifras del presupuesto; solo con su memoria, respondió «no sé» a las 10">
+        <span class="g-titulo">10 preguntas sobre la ejecución del presupuesto 2025</span>
+        <span class="g-fila"><span class="g-nombre">Con el MCP</span><span class="g-barra"><span class="g-valor si" style="width:100%">10 aciertos</span></span></span>
+        <span class="g-fila"><span class="g-nombre">Solo memoria</span><span class="g-barra"><span class="g-valor no" style="width:100%">10 «no sé»</span></span></span>
+        <span class="g-fuente">Claude Haiku · cifras comparadas con la web del MEF</span>
+      </a>
+      <div>
+        <p class="etiqueta">Servidor MCP · Octubre 2026</p>
+        <h3>Un asistente de IA que consulta el presupuesto público en la Consulta Amigable del MEF</h3>
+        <dl>
+          <dt>Pregunta</dt>
+          <dd>¿Puede una IA dar cifras correctas del gasto público si le doy acceso a la fuente oficial?</dd>
+          <dt>Resultado</dt>
+          <dd>Con mi servidor, Claude acertó <strong>10 de 10</strong> cifras de la ejecución 2025, cada una con el enlace del MEF. Sin él, no pudo dar <strong>ninguna</strong>.</dd>
+        </dl>
+        <ul class="enlaces">
+          <li><a class="boton" href="https://github.com/NoeliaLRuiz/mcp-consulta-amigable">Código</a></li>
+          <li><a class="boton" href="https://github.com/NoeliaLRuiz/mcp-consulta-amigable/blob/main/informe.md">Informe</a></li>
+        </ul>
+        <p class="herramientas">Python · FastMCP · Claude Code · pruebas con pytest</p>
+      </div>
+    </article>
+
+    <article class="proyecto">
+      <a class="imagen" href="https://noelialruiz.github.io/Python_intermedio_2026/pr%C3%A1ctica/reto-c-incendios/docs/">
+        <img src="images/proyecto-incendios.jpg" alt="Mapa del Perú con los incendios de 100 hectáreas o más y las compañías de bomberos" style="object-position: 50% 58%" loading="lazy">
+      </a>
+      <div>
+        <p class="etiqueta">Imágenes satelitales · Octubre 2026</p>
+        <h3>¿Qué se quemó? Incendios del Perú, bomberos y viviendas cercanas</h3>
+        <dl>
+          <dt>Pregunta</dt>
+          <dd>Entre setiembre y octubre de 2026, ¿qué cobertura se quemó y a qué distancia estaban los bomberos?</dd>
+          <dt>Resultado</dt>
+          <dd>En los 730 incendios de 100 ha o más ardió sobre todo pastizal (<strong>56 %</strong>), y <strong>503 (69 %)</strong> estaban a más de 30 km de una compañía de bomberos.</dd>
+        </dl>
+        <ul class="enlaces">
+          <li><a class="boton" href="https://noelialruiz.github.io/Python_intermedio_2026/pr%C3%A1ctica/reto-c-incendios/docs/">Tablero</a></li>
+          <li><a class="boton" href="https://github.com/NoeliaLRuiz/Python_intermedio_2026/tree/main/pr%C3%A1ctica/reto-c-incendios">Código</a></li>
+        </ul>
+        <p class="herramientas">Python · Sentinel-2 · ESA WorldCover · OpenStreetMap</p>
+      </div>
+    </article>
+
+    <h3 style="font-size:21px;margin:30px 0 4px">Otros proyectos</h3>
+    <ul class="otros">
+      <li>
+        <h3>Del titular al clasificador de noticias</h3>
+        <p>Recolecté 384 titulares de El Comercio, los etiqueté con un LLM y afiné DistilBERT para clasificarlos en cuatro temas: F1 de <strong>0,80</strong> y 0,04 segundos por titular.</p>
+        <div class="links">
+          <a href="https://clasificador-noticias-pe.streamlit.app">App</a>
+          <a href="https://huggingface.co/NoeliaF/clasificador-noticias-pe">Modelo</a>
+          <a href="https://github.com/NoeliaLRuiz/Python_intermedio_2026/tree/main/tarea_1">Código</a>
+        </div>
+      </li>
+      <li>
+        <h3>Voces y documentos peruanos</h3>
+        <p>Convertí 31 documentos históricos (impresos, fotos y manuscritos) y 52 minutos de entrevistas en texto buscable, con los nombres seudonimizados. Error por palabra en el audio: <strong>0,19</strong>.</p>
+        <div class="links">
+          <a href="https://voces-y-documentos-pe.streamlit.app/">App</a>
+          <a href="https://github.com/NoeliaLRuiz/Python_intermedio_2026/tree/main/tarea_2">Código</a>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="video">
+    <h2>Video</h2>
+    <div class="video">
+      <video controls playsinline preload="none" poster="images/reel-portada.jpg">
+        <source src="https://noelialruiz.github.io/Python_intermedio_2026/tarea_3/reel/reel.mp4" type="video/mp4">
+        <a href="https://noelialruiz.github.io/Python_intermedio_2026/tarea_3/reel/reel.mp4">Ver el reel</a>
+      </video>
+      <div>
+        <p class="etiqueta">Reel · 66 segundos</p>
+        <h3 style="font-size:23px;margin-bottom:12px">Menos víctimas, más violencia</h3>
+        <p>Cuento en un minuto los tres hallazgos del dashboard de criminalidad: hay menos víctimas, pero el delito es más violento, y la violencia grave está en otras regiones.</p>
+        <p>La voz es mía, clonada con inteligencia artificial a partir de una grabación propia; el video lo avisa en la portada.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <h2>Experiencia</h2>
+    <ul class="linea">
+      <li>
+        <div class="fecha">Feb. 2025 – actualidad</div>
+        <div>
+          <div class="cargo">Especialista en Presupuesto</div>
+          <div class="lugar">Área de Planificación y Presupuesto · Escuela de Educación Superior Pedagógica Pública Monterrico</div>
+          <p>Elaboro informes de presupuesto y hago seguimiento a la ejecución del gasto y al Plan Operativo Institucional.</p>
+        </div>
+      </li>
+      <li>
+        <div class="fecha">Oct. 2024 – ene. 2025</div>
+        <div>
+          <div class="cargo">Asistente técnica en carga de datos</div>
+          <div class="lugar">Escuela de Educación Superior Pedagógica Pública Monterrico</div>
+          <p>Implementación de la carga de datos comunes en el aplicativo informático de la escuela.</p>
+        </div>
+      </li>
+      <li>
+        <div class="fecha">Mar. – set. 2024</div>
+        <div>
+          <div class="cargo">Asistente administrativa y contable</div>
+          <div class="lugar">VIP Viajes y Representaciones S. A.</div>
+        </div>
+      </li>
+      <li>
+        <div class="fecha">Ene. 2022 – jul. 2023</div>
+        <div>
+          <div class="cargo">Apoyo administrativo y auxiliar administrativa de Gerencia</div>
+          <div class="lugar">Núcleo Ejecutor de Compras para el Ministerio del Interior</div>
+          <p>Seguimiento de trámites, archivo de la Gerencia, redacción de cartas, informes y contratos de transporte.</p>
+        </div>
+      </li>
+      <li>
+        <div class="fecha">Dic. 2020 – dic. 2021</div>
+        <div>
+          <div class="cargo">Asistente administrativa</div>
+          <div class="lugar">Warmy Jeans</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="formacion">
+    <h2>Formación</h2>
+    <ul class="linea">
+      <li>
+        <div class="fecha">2026 – en curso</div>
+        <div>
+          <div class="cargo">Diplomatura en Ciencia de Datos para las Ciencias Sociales y la Gestión Pública</div>
+          <div class="lugar">Pontificia Universidad Católica del Perú</div>
+          <p>Matemática, Estadística, Fundamentos de R y Python Intermedio.</p>
+        </div>
+      </li>
+      <li>
+        <div class="fecha">2017 – 2022</div>
+        <div>
+          <div class="cargo">Bachiller en Administración</div>
+          <div class="lugar">Universidad Nacional Federico Villarreal · Administración Pública y Gestión Social</div>
+        </div>
+      </li>
+    </ul>
+    <h3 style="font-size:19px;margin:22px 0 10px">Herramientas</h3>
+    <ul class="chips">
+      <li>Python</li><li>R</li><li>Quarto</li><li>Git y GitHub</li><li>Claude Code</li><li>Excel avanzado</li><li>Power BI</li><li>MS Project</li>
+    </ul>
+    <h3 style="font-size:19px;margin:22px 0 10px">Idiomas</h3>
+    <ul class="chips"><li>Español, nativo</li><li>Inglés, básico</li></ul>
+  </section>
+
+  <section id="certificados">
+    <h2>Cursos y certificados</h2>
+    <div class="grupos">
+      <div>
+        <h3>Planeamiento y presupuesto</h3>
+        <ul>
+          <li>Presupuesto Público por Resultados<span>Escuela de Gobierno y Políticas Públicas, PUCP · 40 h · 2025</span></li>
+          <li>Planeamiento Estratégico en el Sector Público<span>Escuela de Gobierno y Políticas Públicas, PUCP · 40 h · 2025</span></li>
+          <li>Seguimiento y Evaluación de Políticas y Planes<span>ENAP – SERVIR · 16 h · 2025</span></li>
+          <li>3.er Congreso Internacional Planifica Perú 2050<span>CEPLAN · 32 h · 2024</span></li>
+          <li>Microsoft Project Planificación<span>Universidad Nacional de Ingeniería · 24 h · 2023</span></li>
+        </ul>
+        <h3>Datos y ofimática</h3>
+        <ul>
+          <li>Power BI<span>Universidad Nacional de Ingeniería · 2023</span></li>
+          <li>Tablas dinámicas y gráficos en Excel<span>Universidad Nacional de Ingeniería · 2023</span></li>
+          <li>Especialización en Excel<span>Universidad Nacional de Ingeniería · 2020</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Gestión pública e integridad</h3>
+        <ul>
+          <li>Gestión Pública para Promover la Igualdad<span>ENAP – SERVIR · 24 h · 2025</span></li>
+          <li>Ciclo de conferencias sobre integridad pública y lucha contra la corrupción (4 conferencias)<span>ENAP – SERVIR · 2025 – 2026</span></li>
+          <li>Gestión por procesos y modernización de la gestión pública (2 microcursos)<span>ENAP – SERVIR · 2023</span></li>
+          <li>Dotación y tránsito de entidades al régimen del Servicio Civil (2 cursos)<span>ENAP – SERVIR · 2023</span></li>
+          <li>El ABC de las Compras Públicas y Gestión del SEACE<span>OSCE · 2023</span></li>
+          <li>Gestión Pública<span>Universidad Nacional Federico Villarreal · 2021</span></li>
+        </ul>
+        <h3>Género y derechos</h3>
+        <ul>
+          <li>Escuela Feminista: Círculo Universitario de Estudios de Género<span>CMP Flora Tristán · 40 h · 2024</span></li>
+          <li>Decidir nos hace libres: derechos sexuales y reproductivos<span>CMP Flora Tristán · 54 h · 2020</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="nota">Puedo enviar copia de cualquier certificado si me la solicitan por correo.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Noelia Leon Ruiz · Lima, Perú</p>
+    <p>Página escrita en HTML con ayuda de Claude Code y publicada en GitHub Pages. El diseño de una sola página se inspira en el sitio de <a href="https://jonbarron.info">Jon Barron</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
