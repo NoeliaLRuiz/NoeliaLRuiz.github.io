@@ -168,7 +168,7 @@
 
     /* Tarjetas de proyecto */
     .proyecto {
-      display: grid; grid-template-columns: 300px 1fr; gap: 26px;
+      display: grid; grid-template-columns: 340px 1fr; gap: 26px;
       background: linear-gradient(160deg, var(--card) 0%, var(--card-2) 100%);
       border: 1px solid var(--line); border-radius: 14px;
       padding: 18px; margin-bottom: 20px;
@@ -179,15 +179,16 @@
     .proyecto .imagen img { object-fit: cover; }
     .grafico { color: var(--text); text-decoration: none; }
     .proyecto .imagen.grafico { aspect-ratio: auto; align-self: stretch; }
-    .g-panel { display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 16px; background: var(--card); }
-    .g-titulo { font-weight: 600; font-size: 15px; line-height: 1.35; }
+    .g-panel { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 20px; background: linear-gradient(135deg, #5e1f2a 0%, #8f3a48 100%); color: #fff; }
     .g-fila { display: grid; gap: 4px; }
-    .g-nombre { font-size: 14px; color: var(--muted); }
-    .g-barra { display: block; background: var(--line); border-radius: 6px; }
+    .g-nombre { font-size: 14px; color: #f3dfe2; line-height: 1.35; }
+    .g-codigo { align-self: flex-start; font: 600 13px/1 ui-monospace, Consolas, monospace; color: #f3dfe2; background: rgba(255,255,255,.12); padding: 6px 9px; border-radius: 6px; }
+    .g-grande { font: 700 22px/1 "Source Serif 4", Georgia, serif; color: #f3dfe2; }
+    .g-grande b { font-size: 64px; color: #fff; }
+    .g-barra { display: block; background: rgba(255,255,255,.12); border-radius: 6px; }
     .g-valor { display: block; border-radius: 6px; padding: 6px 10px; font-size: 14px; font-weight: 700; }
-    .g-valor.si { background: var(--si); color: var(--si-text); }
-    .g-valor.no { background: var(--no); color: var(--no-text); }
-    .g-fuente { font-size: 12.5px; color: var(--muted); }
+    .g-valor.si { background: #f3c9cf; color: #3a1118; }
+    .g-valor.no { background: rgba(255,255,255,.16); color: #fff; }
     .etiqueta { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--warm); margin: 2px 0 6px; }
     .proyecto h3 { font-size: 23px; font-weight: 600; margin-bottom: 12px; }
     .proyecto dl { margin: 0 0 14px; }
@@ -201,6 +202,32 @@
     .otros h3 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
     .otros p { margin: 0 0 10px; font-size: 15.5px; }
     .otros .links { font-size: 15px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .otros .links a { display: inline-flex; align-items: center; gap: 5px; }
+    .otros .links svg { width: 15px; height: 15px; flex: none; }
+
+    /* Miniaturas de «Otros proyectos» */
+    .mini { display: grid; gap: 8px; height: 112px; padding: 14px 16px; margin: -2px 0 14px; border-radius: 10px; background: var(--hero); border: 1px solid var(--line); align-content: center; }
+    .titular { display: flex; align-items: center; gap: 10px; }
+    .tag { flex: none; width: 78px; font: 600 11px/1 "Public Sans", sans-serif; font-style: normal; letter-spacing: .03em; text-transform: uppercase; color: #fff; padding: 4px 0; border-radius: 4px; text-align: center; }
+    .t1 { background: #7a2e3a; } .t2 { background: #a0612f; } .t3 { background: #4f6b4a; } .t4 { background: #3f5a7e; }
+    .raya { height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--muted) 35%, transparent); }
+    .mini-voces { padding: 6px 10px; }
+    .mini-voces svg { width: 100%; height: 100%; }
+
+    /* Fichas resumen sobre las miniaturas */
+    .proyecto .imagen.con-resumen { position: relative; }
+    .resumen { position: absolute; inset: 12px; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; color: #fff; pointer-events: none; }
+    .resumen .cabeza { padding: 14px 16px; max-width: 62%; display: grid; gap: 4px; }
+    .antetitulo { font: 600 10.5px/1.2 "Public Sans", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.78); }
+    .resumen .titulo { font: 700 20px/1.15 "Source Serif 4", Georgia, serif; text-wrap: balance; }
+    .resumen .datos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.16); }
+    .resumen .dato { display: grid; align-content: start; gap: 2px; padding: 9px 10px 10px; background: rgba(6, 12, 26, .78); font-size: 10.5px; line-height: 1.25; color: rgba(255,255,255,.85); }
+    .brasa .resumen .dato { background: rgba(26, 9, 7, .8); }
+    .resumen .dato b { font: 700 19px/1.05 "Source Serif 4", Georgia, serif; color: #fff; }
+    .mini { position: relative; }
+    .mini-dato { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: grid; justify-items: center; gap: 1px; padding: 8px 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--line); font-size: 11.5px; color: var(--muted); box-shadow: 0 4px 12px rgba(70, 22, 31, .12); }
+    .mini-dato b { font: 700 20px/1 "Source Serif 4", Georgia, serif; color: var(--accent); }
+    .mini-voces svg { width: 70%; }
 
     /* Las tarjetas se elevan un poco al pasar el mouse */
     @media (hover: hover) and (prefers-reduced-motion: no-preference) {
@@ -269,6 +296,7 @@
       section > h2 { font-size: 25px; }
       .proyecto { grid-template-columns: 1fr; gap: 16px; padding: 14px; }
       .proyecto .imagen { aspect-ratio: 16 / 10; }
+      .proyecto .imagen.con-resumen { aspect-ratio: 4 / 3; }
       .proyecto h3 { font-size: 21px; }
       .otros, .grupos { grid-template-columns: 1fr; }
       .video { grid-template-columns: 1fr; }
@@ -343,8 +371,19 @@
     <p class="intro" lang="en">Three projects built on Peruvian public data, newest first. The code for each one is open on GitHub; the dashboards and the reel are in Spanish.</p>
 
     <article class="proyecto">
-      <a class="imagen" href="https://noelialruiz.github.io/Python_intermedio_2026/tarea_3/web/">
-        <img src="images/proyecto-criminalidad.jpg" alt="Dashboard con indicadores de criminalidad, mapa del Perú por regiones y ranking de homicidios" data-alt-es="Dashboard con indicadores de criminalidad, mapa del Perú por regiones y ranking de homicidios" data-alt-en="Dashboard with crime indicators, a map of Peru by region and a homicide ranking" style="object-position: top" loading="lazy">
+      <a class="imagen con-resumen" href="https://noelialruiz.github.io/criminalidad-peru/web/">
+        <img src="images/ficha-criminalidad.jpg" alt="Mapa del Perú con los homicidios por región y las cifras clave del dashboard de criminalidad" data-alt-es="Mapa del Perú con los homicidios por región y las cifras clave del dashboard de criminalidad" data-alt-en="Map of Peru with homicides by region and the key figures of the crime dashboard" loading="lazy">
+        <span class="resumen">
+          <span class="cabeza">
+            <span class="antetitulo"><span lang="es">Perú · 2010–2025</span><span lang="en">Peru · 2010–2025</span></span>
+            <span class="titulo"><span lang="es">Criminalidad por regiones</span><span lang="en">Crime by region</span></span>
+          </span>
+          <span class="datos">
+            <span class="dato"><b><span lang="es">25,3 %</span><span lang="en">25.3%</span></b><span lang="es">víctimas de un delito (2025)</span><span lang="en">crime victims (2025)</span></span>
+            <span class="dato"><b><span lang="es">×8,5</span><span lang="en">×8.5</span></b><span lang="es">denuncias de extorsión desde 2018</span><span lang="en">extortion reports since 2018</span></span>
+            <span class="dato"><b><span lang="es">10,1</span><span lang="en">10.1</span></b><span lang="es">homicidios por 100 mil (2024)</span><span lang="en">homicides per 100k (2024)</span></span>
+          </span>
+        </span>
       </a>
       <div>
         <p class="etiqueta"><span lang="es">Dashboard y reel · Noviembre 2026</span><span lang="en">Dashboard and reel · November 2026</span></p>
@@ -358,9 +397,9 @@
           <dd lang="en">The share of people who were victims of a crime fell from <strong>40.0% (2011) to 25.3% (2025)</strong>, but extortion reports grew <strong>8.5-fold</strong>: from 3,223 in 2018 to 27,292 in 2025.</dd>
         </dl>
         <ul class="enlaces">
-          <li><a class="boton" href="https://noelialruiz.github.io/Python_intermedio_2026/tarea_3/web/">Dashboard</a></li>
+          <li><a class="boton" href="https://noelialruiz.github.io/criminalidad-peru/web/">Dashboard</a></li>
           <li><a class="boton" href="#video">Reel</a></li>
-          <li><a class="boton" href="https://github.com/NoeliaLRuiz/Python_intermedio_2026/tree/main/tarea_3"><span lang="es">Código</span><span lang="en">Code</span></a></li>
+          <li><a class="boton" href="https://github.com/NoeliaLRuiz/criminalidad-peru" title="Ver el código en GitHub" data-title-es="Ver el código en GitHub" data-title-en="See the code on GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a></li>
         </ul>
         <p class="herramientas"><span lang="es">Python · pandas · Plotly · datos abiertos del Mininter</span><span lang="en">Python · pandas · Plotly · Ministry of the Interior open data</span></p>
       </div>
@@ -369,10 +408,11 @@
     <article class="proyecto">
       <a class="imagen grafico" href="https://github.com/NoeliaLRuiz/mcp-consulta-amigable/blob/main/informe.md" aria-label="Gráfico: con el MCP, Claude acertó las 10 cifras del presupuesto; solo con su memoria, respondió «no sé» a las 10" data-label-es="Gráfico: con el MCP, Claude acertó las 10 cifras del presupuesto; solo con su memoria, respondió «no sé» a las 10" data-label-en="Chart: with the MCP, Claude got all 10 budget figures right; from memory alone, it answered “I don't know” to all 10">
         <span class="g-panel">
-        <span class="g-titulo"><span lang="es">10 preguntas sobre la ejecución del presupuesto 2025</span><span lang="en">10 questions on 2025 budget execution</span></span>
-        <span class="g-fila"><span class="g-nombre"><span lang="es">Con el MCP</span><span lang="en">With the MCP</span></span><span class="g-barra"><span class="g-valor si" style="width:100%"><span lang="es">10 aciertos</span><span lang="en">10 correct</span></span></span></span>
-        <span class="g-fila"><span class="g-nombre"><span lang="es">Solo memoria</span><span lang="en">Memory only</span></span><span class="g-barra"><span class="g-valor no" style="width:100%"><span lang="es">10 «no sé»</span><span lang="en">10 “I don't know”</span></span></span></span>
-        <span class="g-fuente"><span lang="es">Claude Haiku · cifras comparadas con la web del MEF</span><span lang="en">Claude Haiku · figures checked against the MEF website</span></span>
+          <span class="antetitulo"><span lang="es">Consulta Amigable del MEF</span><span lang="en">MEF Consulta Amigable</span></span>
+          <span class="g-grande"><b>10</b>/10</span>
+          <span class="g-nombre"><span lang="es">cifras del presupuesto 2025 correctas con el MCP</span><span lang="en">correct 2025 budget figures with the MCP</span></span>
+          <span class="g-fila"><span class="g-barra"><span class="g-valor si" style="width:100%"><span lang="es">Con el MCP · 10 aciertos</span><span lang="en">With the MCP · 10 correct</span></span></span></span>
+          <span class="g-fila"><span class="g-barra"><span class="g-valor no" style="width:100%"><span lang="es">Solo memoria · 10 «no sé»</span><span lang="en">Memory only · 10 “I don't know”</span></span></span></span>
         </span>
       </a>
       <div>
@@ -387,7 +427,7 @@
           <dd lang="en">With my server, Claude got <strong>10 out of 10</strong> figures on 2025 budget execution right, each with its MEF link. Without it, it could not give <strong>any</strong>.</dd>
         </dl>
         <ul class="enlaces">
-          <li><a class="boton" href="https://github.com/NoeliaLRuiz/mcp-consulta-amigable"><span lang="es">Código</span><span lang="en">Code</span></a></li>
+          <li><a class="boton" href="https://github.com/NoeliaLRuiz/mcp-consulta-amigable" title="Ver el código en GitHub" data-title-es="Ver el código en GitHub" data-title-en="See the code on GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a></li>
           <li><a class="boton" href="https://github.com/NoeliaLRuiz/mcp-consulta-amigable/blob/main/informe.md"><span lang="es">Informe</span><span lang="en">Report</span></a></li>
         </ul>
         <p class="herramientas"><span lang="es">Python · FastMCP · Claude Code · pruebas con pytest</span><span lang="en">Python · FastMCP · Claude Code · pytest tests</span></p>
@@ -395,8 +435,19 @@
     </article>
 
     <article class="proyecto">
-      <a class="imagen" href="https://noelialruiz.github.io/Python_intermedio_2026/pr%C3%A1ctica/reto-c-incendios/docs/">
-        <img src="images/proyecto-incendios.jpg" alt="Mapa del Perú con los incendios de 100 hectáreas o más y las compañías de bomberos" data-alt-es="Mapa del Perú con los incendios de 100 hectáreas o más y las compañías de bomberos" data-alt-en="Map of Peru with fires of 100 hectares or more and fire stations" style="object-position: 50% 58%" loading="lazy">
+      <a class="imagen con-resumen brasa" href="https://noelialruiz.github.io/incendios-peru/docs/">
+        <img src="images/ficha-incendios.jpg" alt="Mapa del Perú con los incendios de 100 hectáreas o más, las compañías de bomberos y las cifras clave" data-alt-es="Mapa del Perú con los incendios de 100 hectáreas o más, las compañías de bomberos y las cifras clave" data-alt-en="Map of Peru with fires of 100 hectares or more, fire stations and the key figures" loading="lazy">
+        <span class="resumen">
+          <span class="cabeza">
+            <span class="antetitulo"><span lang="es">21 set – 21 oct 2026</span><span lang="en">Sep 21 – Oct 21, 2026</span></span>
+            <span class="titulo"><span lang="es">Incendios del Perú</span><span lang="en">Peru's wildfires</span></span>
+          </span>
+          <span class="datos">
+            <span class="dato"><b><span lang="es">730</span><span lang="en">730</span></b><span lang="es">incendios de 100 ha o más</span><span lang="en">fires of 100 ha or more</span></span>
+            <span class="dato"><b><span lang="es">56 %</span><span lang="en">56%</span></b><span lang="es">de la huella era pastizal</span><span lang="en">of the burned area was grassland</span></span>
+            <span class="dato"><b><span lang="es">69 %</span><span lang="en">69%</span></b><span lang="es">a más de 30 km de bomberos</span><span lang="en">over 30 km from a fire station</span></span>
+          </span>
+        </span>
       </a>
       <div>
         <p class="etiqueta"><span lang="es">Imágenes satelitales · Octubre 2026</span><span lang="en">Satellite imagery · October 2026</span></p>
@@ -410,8 +461,8 @@
           <dd lang="en">Across the 730 fires of 100 ha or more, mostly grassland burned (<strong>56%</strong>), and <strong>503 (69%)</strong> were more than 30 km from a fire station.</dd>
         </dl>
         <ul class="enlaces">
-          <li><a class="boton" href="https://noelialruiz.github.io/Python_intermedio_2026/pr%C3%A1ctica/reto-c-incendios/docs/"><span lang="es">Tablero</span><span lang="en">Dashboard</span></a></li>
-          <li><a class="boton" href="https://github.com/NoeliaLRuiz/Python_intermedio_2026/tree/main/pr%C3%A1ctica/reto-c-incendios"><span lang="es">Código</span><span lang="en">Code</span></a></li>
+          <li><a class="boton" href="https://noelialruiz.github.io/incendios-peru/docs/"><span lang="es">Tablero</span><span lang="en">Dashboard</span></a></li>
+          <li><a class="boton" href="https://github.com/NoeliaLRuiz/incendios-peru" title="Ver el código en GitHub" data-title-es="Ver el código en GitHub" data-title-en="See the code on GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a></li>
         </ul>
         <p class="herramientas">Python · Sentinel-2 · ESA WorldCover · OpenStreetMap</p>
       </div>
@@ -420,22 +471,45 @@
     <h3 style="font-size:21px;margin:30px 0 4px"><span lang="es">Otros proyectos</span><span lang="en">Other projects</span></h3>
     <ul class="otros">
       <li>
+        <div class="mini" aria-hidden="true">
+          <span class="titular"><i class="tag t1"><span lang="es">Política</span><span lang="en">Politics</span></i><span class="raya" style="width:52%"></span></span>
+          <span class="titular"><i class="tag t2"><span lang="es">Economía</span><span lang="en">Economy</span></i><span class="raya" style="width:40%"></span></span>
+          <span class="titular"><i class="tag t3"><span lang="es">Deportes</span><span lang="en">Sports</span></i><span class="raya" style="width:46%"></span></span>
+          <span class="titular"><i class="tag t4"><span lang="es">Ciencia</span><span lang="en">Science</span></i><span class="raya" style="width:34%"></span></span>
+          <span class="mini-dato"><b><span lang="es">0,80</span><span lang="en">0.80</span></b><span lang="es">F1 del modelo</span><span lang="en">model F1</span></span>
+        </div>
         <h3><span lang="es">Del titular al clasificador de noticias</span><span lang="en">From headline to news classifier</span></h3>
         <p lang="es">Recolecté 384 titulares de El Comercio, los etiqueté con un LLM y afiné DistilBERT para clasificarlos en cuatro temas: F1 de <strong>0,80</strong> y 0,04 segundos por titular.</p>
         <p lang="en">I collected 384 headlines from El Comercio, labeled them with an LLM and fine-tuned DistilBERT to sort them into four topics: an F1 score of <strong>0.80</strong> and 0.04 seconds per headline.</p>
         <div class="links">
           <a href="https://clasificador-noticias-pe.streamlit.app">App</a>
           <a href="https://huggingface.co/NoeliaF/clasificador-noticias-pe"><span lang="es">Modelo</span><span lang="en">Model</span></a>
-          <a href="https://github.com/NoeliaLRuiz/Python_intermedio_2026/tree/main/tarea_1"><span lang="es">Código</span><span lang="en">Code</span></a>
+          <a href="https://github.com/NoeliaLRuiz/clasificador-noticias-pe" title="Ver el código en GitHub" data-title-es="Ver el código en GitHub" data-title-en="See the code on GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
         </div>
       </li>
       <li>
+        <div class="mini mini-voces" aria-hidden="true">
+          <svg viewBox="0 0 320 96" preserveAspectRatio="xMidYMid meet">
+            <rect x="14" y="10" width="58" height="76" rx="6" fill="var(--card)" stroke="var(--line)"/>
+            <path d="M24 26h38M24 36h30M24 46h38M24 56h24M24 66h34" stroke="var(--muted)" stroke-width="3" stroke-linecap="round"/>
+            <g fill="var(--accent)">
+              <rect x="88" y="40" width="5" height="16" rx="2"/><rect x="97" y="30" width="5" height="36" rx="2"/><rect x="106" y="22" width="5" height="52" rx="2"/>
+              <rect x="115" y="34" width="5" height="28" rx="2"/><rect x="124" y="16" width="5" height="64" rx="2"/><rect x="133" y="28" width="5" height="40" rx="2"/>
+              <rect x="142" y="38" width="5" height="20" rx="2"/><rect x="151" y="26" width="5" height="44" rx="2"/><rect x="160" y="36" width="5" height="24" rx="2"/>
+            </g>
+            <path d="M182 48h40m-10-10 10 10-10 10" fill="none" stroke="var(--warm)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="238" y="10" width="68" height="76" rx="6" fill="var(--card)" stroke="var(--line)"/>
+            <circle cx="290" cy="24" r="7" fill="none" stroke="var(--accent)" stroke-width="3"/><path d="M295 29l6 6" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M248 46h48M248 56h40M248 66h46M248 76h28" stroke="var(--muted)" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <span class="mini-dato"><b>52 min</b><span lang="es">de entrevistas</span><span lang="en">of interviews</span></span>
+        </div>
         <h3><span lang="es">Voces y documentos peruanos</span><span lang="en">Peruvian voices and documents</span></h3>
         <p lang="es">Convertí 31 documentos históricos (impresos, fotos y manuscritos) y 52 minutos de entrevistas en texto buscable, con los nombres seudonimizados. Error por palabra en el audio: <strong>0,19</strong>.</p>
         <p lang="en">I turned 31 historical documents (printed, photographed and handwritten) and 52 minutes of interviews into searchable text, with names pseudonymized. Word error rate on the audio: <strong>0.19</strong>.</p>
         <div class="links">
           <a href="https://voces-y-documentos-pe.streamlit.app/">App</a>
-          <a href="https://github.com/NoeliaLRuiz/Python_intermedio_2026/tree/main/tarea_2"><span lang="es">Código</span><span lang="en">Code</span></a>
+          <a href="https://github.com/NoeliaLRuiz/voces-y-documentos-pe" title="Ver el código en GitHub" data-title-es="Ver el código en GitHub" data-title-en="See the code on GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
         </div>
       </li>
     </ul>
@@ -445,8 +519,8 @@
     <h2>Video</h2>
     <div class="video">
       <video controls playsinline preload="none" poster="images/reel-portada.jpg">
-        <source src="https://noelialruiz.github.io/Python_intermedio_2026/tarea_3/reel/reel.mp4" type="video/mp4">
-        <a href="https://noelialruiz.github.io/Python_intermedio_2026/tarea_3/reel/reel.mp4"><span lang="es">Ver el reel</span><span lang="en">Watch the reel</span></a>
+        <source src="https://noelialruiz.github.io/criminalidad-peru/reel/reel.mp4" type="video/mp4">
+        <a href="https://noelialruiz.github.io/criminalidad-peru/reel/reel.mp4"><span lang="es">Ver el reel</span><span lang="en">Watch the reel</span></a>
       </video>
       <div>
         <p class="etiqueta"><span lang="es">Reel · 66 segundos</span><span lang="en">Reel · 66 seconds · in Spanish</span></p>
@@ -567,15 +641,6 @@
         </div>
       </li>
     </ul>
-    <h3 style="font-size:19px;margin:22px 0 10px"><span lang="es">Herramientas</span><span lang="en">Tools</span></h3>
-    <ul class="chips">
-      <li>Python</li><li>R</li><li>Quarto</li><li><span lang="es">Git y GitHub</span><span lang="en">Git and GitHub</span></li><li>Claude Code</li><li><span lang="es">Excel avanzado</span><span lang="en">Advanced Excel</span></li><li>Power BI</li><li>MS Project</li>
-    </ul>
-    <h3 style="font-size:19px;margin:22px 0 10px"><span lang="es">Idiomas</span><span lang="en">Languages</span></h3>
-    <ul class="chips">
-      <li><span lang="es">Español, nativo</span><span lang="en">Spanish, native</span></li>
-      <li><span lang="es">Inglés, básico</span><span lang="en">English, basic</span></li>
-    </ul>
   </section>
 
   <section id="certificados">
@@ -653,6 +718,9 @@
       });
       document.querySelectorAll('[data-href-' + idioma + ']').forEach(function (el) {
         el.setAttribute('href', el.getAttribute('data-href-' + idioma));
+      });
+      document.querySelectorAll('[data-title-' + idioma + ']').forEach(function (el) {
+        el.title = el.getAttribute('data-title-' + idioma);
       });
       document.querySelectorAll('[data-label-' + idioma + ']').forEach(function (el) {
         el.setAttribute('aria-label', el.getAttribute('data-label-' + idioma));

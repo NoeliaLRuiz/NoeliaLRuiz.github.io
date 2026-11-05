@@ -3,65 +3,53 @@
 <head>
 <meta charset="utf-8">
 <title>CV · Noelia Fernanda Leon Ruiz</title>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400..700;1,400&family=Source+Serif+4:opsz,wght@8..60,500..700&display=swap" rel="stylesheet">
 <style>
-  @page { size: A4; margin: 12mm 14mm 12mm; }
+  @font-face { font-family: "CMU Serif"; font-style: normal; font-weight: 400; src: url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/cmu-serif-500-roman.woff2") format("woff2"); }
+  @font-face { font-family: "CMU Serif"; font-style: italic; font-weight: 400; src: url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/cmu-serif-500-italic.woff2") format("woff2"); }
+  @font-face { font-family: "CMU Serif"; font-style: normal; font-weight: 700; src: url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/cmu-serif-700-roman.woff2") format("woff2"); }
+  @font-face { font-family: "CMU Serif"; font-style: italic; font-weight: 700; src: url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/cmu-serif-700-italic.woff2") format("woff2"); }
+  @font-face { font-family: "CMU Typewriter"; font-style: normal; font-weight: 400; src: url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/cmu-typewriter-text-500-roman.woff2") format("woff2"); }
+  @page { size: A4; margin: 14mm 17mm 13mm; }
   * { box-sizing: border-box; }
-  body { margin: 0; color: #2b1d20; font: 400 9.3pt/1.4 "Public Sans", Arial, sans-serif; }
-  a { color: #7a2e3a; text-decoration: none; }
-  h1, h2 { font-family: "Source Serif 4", Georgia, serif; margin: 0; }
-  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  header { display: flex; gap: 16px; align-items: center; padding: 12px 16px; border-radius: 10px; border-bottom: 3px solid #7a2e3a; background: linear-gradient(120deg, #fbf6f2 0%, #f1e2da 45%, #e2c4bd 100%); }
-  header img { width: 74px; height: 74px; border-radius: 50%; object-fit: cover; }
-  h1 { font-size: 22pt; font-weight: 700; color: #7a2e3a; line-height: 1.1; }
-  .rol { font-size: 10.5pt; color: #6b5157; margin: 2px 0 5px; }
-  .contacto { font-size: 9pt; color: #2b1d20; }
-  .contacto span + span::before { content: " · "; color: #c4a3a8; }
-  h2 { font-size: 11.5pt; font-weight: 700; color: #7a2e3a; text-transform: uppercase; letter-spacing: .06em; margin: 11px 0 5px; padding-bottom: 3px; border-bottom: 1px solid #eadad3; }
-  p { margin: 0 0 4px; }
-  h2 { break-after: avoid; }
-  .item { display: grid; grid-template-columns: 34mm 1fr; gap: 8px; margin-bottom: 6px; break-inside: avoid; }
-  .fecha { color: #6b5157; font-size: 8.8pt; padding-top: 1px; }
+  body { margin: 0; color: #000; font: 400 10.2pt/1.3 "CMU Serif", "Latin Modern Roman", "Times New Roman", serif; font-kerning: normal; }
+  a { color: #000; text-decoration: underline; text-decoration-thickness: .4pt; text-underline-offset: 1.5pt; }
+  header { text-align: center; margin-bottom: 4pt; }
+  h1 { font-size: 23pt; font-weight: 400; font-variant: small-caps; letter-spacing: .03em; margin: 0; line-height: 1.1; }
+  .rol { font-style: italic; margin: 2pt 0 3pt; text-align: center; }
+  .contacto { font-size: 9.4pt; margin: 0; text-align: center; }
+  .contacto span + span::before { content: "  |  "; white-space: pre; }
+  h2 { font-size: 12pt; font-weight: 400; font-variant: small-caps; letter-spacing: .04em; margin: 9pt 0 4pt; padding-bottom: 1pt; border-bottom: .6pt solid #000; break-after: avoid; }
+  h3 { font-size: 10.2pt; font-style: italic; font-weight: 400; margin: 4pt 0 1pt; }
+  p { margin: 0 0 3pt; text-align: justify; hyphens: auto; }
+  .entrada { margin: 0 0 4.5pt; break-inside: avoid; }
+  .fila { display: flex; justify-content: space-between; gap: 12pt; }
+  .fila .der { flex: none; }
   .cargo { font-weight: 700; }
-  .lugar { color: #4e3539; font-style: italic; }
-  ul { margin: 2px 0 0; padding-left: 14px; }
-  li { margin: 0 0 1px; }
-  .proy { margin-bottom: 6px; break-inside: avoid; }
-  .proy b { color: #2b1d20; }
-  .proy .url { color: #7a2e3a; font-size: 8.6pt; }
-  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
-  .cert { margin: 0; padding: 0; list-style: none; }
-  .cert li { margin-bottom: 4px; break-inside: avoid; }
-  .cert span { color: #6b5157; font-size: 8.6pt; display: block; }
-  h3 { font-size: 9.4pt; margin: 6px 0 3px; color: #7a2e3a; }
+  .lugar { font-style: italic; }
+  ul { margin: 1.5pt 0 0; padding-left: 15pt; }
+  .url { font-family: "CMU Typewriter", "Courier New", monospace; font-size: 8.9pt; text-decoration: none; }
+  li { margin: 0 0 .8pt; font-size: 9.7pt; text-align: justify; }
+  .curso { display: flex; justify-content: space-between; gap: 12pt; font-size: 9.7pt; margin: 0 0 .8pt; break-inside: avoid; }
+  .curso .der { flex: none; }
+  .habilidades p { font-size: 9.7pt; margin: 0 0 1.5pt; text-align: left; }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="../images/foto.jpg" alt="">
-  <div>
-    <h1>Noelia Fernanda Leon Ruiz</h1>
-    <p class="rol">Especialista en Presupuesto · Bachiller en Administración · Ciencia de datos</p>
-    <p class="contacto">
-      <span>Lima, Perú</span>
-      <span><a href="mailto:nfernandaleonruiz@gmail.com">nfernandaleonruiz@gmail.com</a></span>
-      <span><a href="https://noelialruiz.github.io">noelialruiz.github.io</a></span>
-      <span><a href="https://github.com/NoeliaLRuiz">github.com/NoeliaLRuiz</a></span>
-      <span><a href="https://www.linkedin.com/in/noeliafernandale%C3%B3nruiz/">linkedin.com/in/noeliafernandaleónruiz</a></span>
-    </p>
-  </div>
+  <h1>Noelia Fernanda Leon Ruiz</h1>
+  <p class="rol">Especialista en Presupuesto · Bachiller en Administración · Ciencia de datos</p>
+  <p class="contacto"><span>Lima, Perú</span><span><a href="mailto:nfernandaleonruiz@gmail.com">nfernandaleonruiz@gmail.com</a></span><span><a href="https://noelialruiz.github.io">noelialruiz.github.io</a></span></p>
+  <p class="contacto"><span><a href="https://github.com/NoeliaLRuiz">github.com/NoeliaLRuiz</a></span><span><a href="https://www.linkedin.com/in/noeliafernandale%C3%B3nruiz/">linkedin.com/in/noeliafernandaleónruiz</a></span></p>
 </header>
 
 <h2>Perfil</h2>
 <p>Bachiller en Administración, especialidad Administración Pública y Gestión Social (UNFV), y especialista en presupuesto de una entidad pública de educación superior desde febrero de 2025, con experiencia previa en gestión administrativa del Estado. Estudio la Diplomatura en Ciencia de Datos para las Ciencias Sociales y la Gestión Pública de la PUCP y uso Python y R para analizar datos abiertos del Perú: presupuesto, seguridad ciudadana y género.</p>
 
 <h2>Experiencia laboral</h2>
-<div class="item">
-  <div class="fecha">Feb. 2025 – actualidad</div>
-  <div>
-    <div class="cargo">Especialista en Presupuesto</div>
-    <div class="lugar">Área de Planificación y Presupuesto · Escuela de Educación Superior Pedagógica Pública Monterrico (MINEDU)</div>
+<div class="entrada">
+  <div class="fila"><span class="cargo">Especialista en Presupuesto</span><span class="der">Feb. 2025 – actualidad</span></div>
+  <div class="fila lugar"><span>Área de Planificación y Presupuesto · Escuela de Educación Superior Pedagógica Pública Monterrico (MINEDU)</span></div>
     <ul>
       <li>Participación en la formulación y evaluación del presupuesto institucional.</li>
       <li>Coordinación, revisión y consolidación de las modificaciones presupuestarias.</li>
@@ -73,122 +61,95 @@
       <li>Coordinación con los sectoristas del MINEDU y asesoría a la jefatura en los asuntos presupuestales a cargo.</li>
       <li>Participación en la elaboración de documentos de gestión institucional: Planes Anuales de Trabajo 2025 y 2026 y Memoria Anual 2025, entre otros.</li>
     </ul>
-  </div>
 </div>
-<div class="item">
-  <div class="fecha">Oct. 2024 – ene. 2025</div>
-  <div>
-    <div class="cargo">Asistente técnica en implementación de carga de datos comunes</div>
-    <div class="lugar">Área de Planificación y Presupuesto · Escuela de Educación Superior Pedagógica Pública Monterrico</div>
+<div class="entrada">
+  <div class="fila"><span class="cargo">Asistente técnica en implementación de carga de datos comunes</span><span class="der">Oct. 2024 – ene. 2025</span></div>
+  <div class="fila lugar"><span>Área de Planificación y Presupuesto · Escuela de Educación Superior Pedagógica Pública Monterrico</span></div>
     <ul>
       <li>Registro, derivación y seguimiento de la documentación del área en el SINAD, el SIGA y el SIAF.</li>
       <li>Carga de datos comunes en el aplicativo informático de la escuela y atención de consultas sobre el estado de los trámites.</li>
     </ul>
-  </div>
 </div>
-<div class="item">
-  <div class="fecha">Mar. – set. 2024</div>
-  <div>
-    <div class="cargo">Asistente administrativa y contable</div>
-    <div class="lugar">VIP Viajes y Representaciones S. A.</div>
+<div class="entrada">
+  <div class="fila"><span class="cargo">Asistente administrativa y contable</span><span class="der">Mar. – set. 2024</span></div>
+  <div class="fila lugar"><span>VIP Viajes y Representaciones S. A.</span></div>
     <ul>
       <li>Liquidaciones mensuales de ventas y compras.</li>
       <li>Gestión de trámites para la obtención de visas a Japón y China.</li>
       <li>Reportes mensuales en coordinación con las áreas usuarias; organización y actualización de la documentación y los procesos.</li>
     </ul>
-  </div>
 </div>
-<div class="item">
-  <div class="fecha">Set. 2022 – jul. 2023</div>
-  <div>
-    <div class="cargo">Auxiliar administrativa de Gerencia</div>
-    <div class="lugar">Núcleo Ejecutor de Compras para el Ministerio del Interior (NEC MININTER)</div>
+<div class="entrada">
+  <div class="fila"><span class="cargo">Auxiliar administrativa de Gerencia</span><span class="der">Set. 2022 – jul. 2023</span></div>
+  <div class="fila lugar"><span>Núcleo Ejecutor de Compras para el Ministerio del Interior (NEC MININTER)</span></div>
     <ul>
       <li>Elaboración de cartas e informes de respuesta a entidades públicas.</li>
       <li>Participación en la elaboración de contratos de bienes y/o servicios y de constancias del personal administrativo.</li>
       <li>Seguimiento de los trámites de Gerencia y coordinación con las áreas usuarias.</li>
     </ul>
-  </div>
 </div>
-<div class="item">
-  <div class="fecha">Ene. – ago. 2022</div>
-  <div>
-    <div class="cargo">Apoyo administrativo de Gerencia</div>
-    <div class="lugar">Núcleo Ejecutor de Compras para el Ministerio del Interior (NEC MININTER)</div>
+<div class="entrada">
+  <div class="fila"><span class="cargo">Apoyo administrativo de Gerencia</span><span class="der">Ene. – ago. 2022</span></div>
+  <div class="fila lugar"><span>Núcleo Ejecutor de Compras para el Ministerio del Interior (NEC MININTER)</span></div>
     <ul>
       <li>Recepción, registro, clasificación y archivo de la documentación de Gerencia.</li>
     </ul>
-  </div>
 </div>
-<div class="item">
-  <div class="fecha">Nov. 2019</div>
-  <div>
-    <div class="cargo">Aplicadora en la evaluación ECCE</div>
-    <div class="lugar">Instituto Nacional de Estadística e Informática</div>
-  </div>
+<div class="entrada">
+  <div class="fila"><span class="cargo">Aplicadora en la evaluación ECCE</span><span class="der">Nov. 2019</span></div>
+  <div class="fila lugar"><span>Instituto Nacional de Estadística e Informática</span></div>
 </div>
 
 <h2>Formación</h2>
-<div class="item">
-  <div class="fecha">2026 – en curso</div>
-  <div>
-    <div class="cargo">Diplomatura en Ciencia de Datos para las Ciencias Sociales y la Gestión Pública</div>
-    <div class="lugar">Pontificia Universidad Católica del Perú</div>
-  </div>
+<div class="entrada">
+  <div class="fila"><span class="cargo">Diplomatura en Ciencia de Datos para las Ciencias Sociales y la Gestión Pública</span><span class="der">2026 – en curso</span></div>
+  <div class="fila lugar"><span>Pontificia Universidad Católica del Perú</span></div>
 </div>
-<div class="item">
-  <div class="fecha">2017 – 2022</div>
-  <div>
-    <div class="cargo">Bachiller en Administración, especialidad Administración Pública y Gestión Social</div>
-    <div class="lugar">Universidad Nacional Federico Villarreal</div>
-  </div>
+<div class="entrada">
+  <div class="fila"><span class="cargo">Bachiller en Administración, especialidad Administración Pública y Gestión Social</span><span class="der">2017 – 2022</span></div>
+  <div class="fila lugar"><span>Universidad Nacional Federico Villarreal</span></div>
 </div>
 
 <h2>Proyectos de datos</h2>
-<div class="proy"><b>Menos víctimas, más violencia (2026).</b> Dashboard de la criminalidad en las 26 regiones del Perú, 2010–2025, con datos abiertos del Mininter, y reel con voz clonada con IA. <span class="url">noelialruiz.github.io/Python_intermedio_2026/tarea_3/web</span></div>
-<div class="proy"><b>MCP de la Consulta Amigable del MEF (2026).</b> Servidor que permite a un asistente de IA consultar el presupuesto público con la fuente de cada cifra: 10 de 10 aciertos frente a 0 sin él. <span class="url">github.com/NoeliaLRuiz/mcp-consulta-amigable</span></div>
-<div class="proy"><b>¿Qué se quemó? (2026).</b> Incendios del Perú con imágenes Sentinel-2, cobertura del suelo, edificaciones cercanas y distancia a los bomberos. <span class="url">github.com/NoeliaLRuiz/Python_intermedio_2026</span></div>
-
-<h2>Cursos y certificaciones</h2>
-<div class="dos">
-  <div>
-    <h3>Planeamiento y presupuesto</h3>
-    <ul class="cert">
-      <li>Presupuesto Público por Resultados<span>Escuela de Gobierno y Políticas Públicas, PUCP · 40 h · 2025</span></li>
-      <li>Planeamiento Estratégico en el Sector Público<span>Escuela de Gobierno y Políticas Públicas, PUCP · 40 h · 2025</span></li>
-      <li>Seguimiento y Evaluación de Políticas y Planes<span>ENAP – SERVIR · 16 h · 2025</span></li>
-      <li>3.er Congreso Internacional Planifica Perú 2050<span>CEPLAN · 32 h · 2024</span></li>
-      <li>Microsoft Project Planificación<span>UNI · 24 h · 2023</span></li>
-    </ul>
-    <h3>Datos y ofimática</h3>
-    <ul class="cert">
-      <li>Power BI<span>UNI · 2023</span></li>
-      <li>Tablas dinámicas y gráficos en Excel<span>UNI · 2023</span></li>
-      <li>Especialización en Excel<span>UNI · 2020</span></li>
-    </ul>
-    <h3>Género y derechos</h3>
-    <ul class="cert">
-      <li>Escuela Feminista: Círculo Universitario de Estudios de Género<span>CMP Flora Tristán · 40 h · 2024</span></li>
-      <li>Decidir nos hace libres: derechos sexuales y reproductivos<span>CMP Flora Tristán · 54 h · 2020</span></li>
-      <li>Manejo de Caso para el Bienestar Infantil<span>CAFO Academy · 2023</span></li>
-    </ul>
-  </div>
-  <div>
-    <h3>Gestión pública e integridad</h3>
-    <ul class="cert">
-      <li>Gestión Pública para Promover la Igualdad<span>ENAP – SERVIR · 24 h · 2025</span></li>
-      <li>Ciclo de conferencias sobre integridad pública y lucha contra la corrupción (4)<span>ENAP – SERVIR · 2025 – 2026</span></li>
-      <li>Gestión por procesos y modernización de la gestión pública (2 microcursos)<span>ENAP – SERVIR · 2023</span></li>
-      <li>Determinación de la dotación y tránsito al régimen del Servicio Civil (2 cursos)<span>ENAP – SERVIR · 2023</span></li>
-      <li>El ABC de las Compras Públicas · Gestión del SEACE<span>OSCE · 2023</span></li>
-      <li>Gestión Pública<span>UNFV · 2021</span></li>
-      <li>Estructura y Funcionamiento del Estado Peruano<span>ENAP · 2017</span></li>
-    </ul>
-  </div>
+<div class="entrada">
+  <div class="fila"><span><span class="cargo">Menos víctimas, más violencia</span> | <i>Python, pandas, Plotly</i></span><span class="der">2026</span></div>
+  <ul><li>Dashboard de la criminalidad en las 26 regiones del Perú, 2010–2025, con datos abiertos del Mininter, y reel con voz clonada con IA. <a class="url" href="https://noelialruiz.github.io/criminalidad-peru/web">noelialruiz.github.io/criminalidad-peru/web</a></li></ul>
+</div>
+<div class="entrada">
+  <div class="fila"><span><span class="cargo">MCP de la Consulta Amigable del MEF</span> | <i>Python, FastMCP, Claude Code</i></span><span class="der">2026</span></div>
+  <ul><li>Servidor que permite a un asistente de IA consultar el presupuesto público con la fuente de cada cifra: 10 de 10 aciertos frente a 0 sin él. <a class="url" href="https://github.com/NoeliaLRuiz/mcp-consulta-amigable">github.com/NoeliaLRuiz/mcp-consulta-amigable</a></li></ul>
+</div>
+<div class="entrada">
+  <div class="fila"><span><span class="cargo">¿Qué se quemó?</span> | <i>Python, Sentinel-2, WorldCover</i></span><span class="der">2026</span></div>
+  <ul><li>Incendios del Perú con imágenes satelitales, cobertura del suelo, edificaciones cercanas y distancia a los bomberos. <a class="url" href="https://github.com/NoeliaLRuiz/incendios-peru">github.com/NoeliaLRuiz/incendios-peru</a></li></ul>
 </div>
 
+<h2>Cursos y certificaciones</h2>
+<h3>Planeamiento y presupuesto</h3>
+<div class="curso"><span><b>Presupuesto Público por Resultados</b>, Escuela de Gobierno y Políticas Públicas, PUCP (40&nbsp;h)</span><span class="der">2025</span></div>
+<div class="curso"><span><b>Planeamiento Estratégico en el Sector Público</b>, Escuela de Gobierno y Políticas Públicas, PUCP (40&nbsp;h)</span><span class="der">2025</span></div>
+<div class="curso"><span><b>Seguimiento y Evaluación de Políticas y Planes</b>, ENAP&nbsp;–&nbsp;SERVIR (16&nbsp;h)</span><span class="der">2025</span></div>
+<div class="curso"><span><b>3.er Congreso Internacional Planifica Perú 2050</b>, CEPLAN (32&nbsp;h)</span><span class="der">2024</span></div>
+<div class="curso"><span><b>Microsoft Project Planificación</b>, UNI (24&nbsp;h)</span><span class="der">2023</span></div>
+<h3>Gestión pública e integridad</h3>
+<div class="curso"><span><b>Gestión Pública para Promover la Igualdad</b>, ENAP&nbsp;–&nbsp;SERVIR (24&nbsp;h)</span><span class="der">2025</span></div>
+<div class="curso"><span><b>Ciclo de conferencias sobre integridad pública y lucha contra la corrupción (4)</b>, ENAP&nbsp;–&nbsp;SERVIR</span><span class="der">2025 – 2026</span></div>
+<div class="curso"><span><b>Gestión por procesos y modernización de la gestión pública (2 microcursos)</b>, ENAP&nbsp;–&nbsp;SERVIR</span><span class="der">2023</span></div>
+<div class="curso"><span><b>Determinación de la dotación y tránsito al régimen del Servicio Civil (2 cursos)</b>, ENAP&nbsp;–&nbsp;SERVIR</span><span class="der">2023</span></div>
+<div class="curso"><span><b>El ABC de las Compras Públicas · Gestión del SEACE</b>, OSCE</span><span class="der">2023</span></div>
+<div class="curso"><span><b>Gestión Pública</b>, UNFV</span><span class="der">2021</span></div>
+<div class="curso"><span><b>Estructura y Funcionamiento del Estado Peruano</b>, ENAP</span><span class="der">2017</span></div>
+<h3>Datos y ofimática</h3>
+<div class="curso"><span><b>Power BI</b>, UNI</span><span class="der">2023</span></div>
+<div class="curso"><span><b>Tablas dinámicas y gráficos en Excel</b>, UNI</span><span class="der">2023</span></div>
+<div class="curso"><span><b>Especialización en Excel</b>, UNI</span><span class="der">2020</span></div>
+<h3>Género y derechos</h3>
+<div class="curso"><span><b>Escuela Feminista: Círculo Universitario de Estudios de Género</b>, CMP Flora Tristán (40&nbsp;h)</span><span class="der">2024</span></div>
+<div class="curso"><span><b>Manejo de Caso para el Bienestar Infantil</b>, CAFO Academy</span><span class="der">2023</span></div>
+<div class="curso"><span><b>Decidir nos hace libres: derechos sexuales y reproductivos</b>, CMP Flora Tristán (54&nbsp;h)</span><span class="der">2020</span></div>
+
 <h2>Herramientas e idiomas</h2>
-<p><b>Datos:</b> Python (pandas, Plotly, Streamlit), R (tidyverse, ggplot2), Quarto, Git y GitHub, Claude Code. <b>Ofimática:</b> Excel avanzado, Power BI, MS Project. <b>Idiomas:</b> español nativo; inglés básico (Británico).</p>
+<div class="habilidades"><p><b>Datos:</b> Python (pandas, Plotly, Streamlit), R (tidyverse, ggplot2), Quarto, Git y GitHub, Claude Code</p><p><b>Ofimática:</b> Excel avanzado, Power BI, MS Project</p><p><b>Idiomas:</b> español, nativo; inglés, básico (Británico)</p></div>
 
 </body>
 </html>
